@@ -1,0 +1,86 @@
+/*  */
+
+/*  */
+
+/*  */
+.banner {
+    animation-name: slideDown, fadeIn;
+    animation-duration: 1.5s;
+}
+
+.banner img {
+    animation-name: slideUp;
+    animation-duration: 1.5s;
+}
+
+h2 ::after ::before {
+    animation-name: slideUp;
+    animation-duration: 1.5s;
+}
+
+
+.story, #characters,
+#place, #studio {
+    animation-name: slideUp;
+    animation-duration: 1.5s;
+
+}
+
+p {
+    animation-name: stayPut !important;
+}
+
+
+/* Effet d’apparition des titres */
+
+/* Ajout de la section finale */
+
+/* Effet de rotation infinie des fleurs */
+.site-footer::after, .site-footer ul::after, .site-footer::before, .story__article::after, #studio h2::before, #studio h2::after, .fleur {
+    animation: rotation 20s normal linear infinite;
+}
+ .story h2::after{
+    transform-origin: 77px 77px;
+    animation: rotation 20s normal linear infinite;
+ }
+
+
+
+
+
+ @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+ @keyframes slideDown {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+ 
+ @keyframes rotation {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
