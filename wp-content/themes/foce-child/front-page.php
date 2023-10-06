@@ -5,6 +5,7 @@ get_header();
 
     <main id="primary" class="site-main">
         <section class="banner">
+            <video autoplay="autoplay" muted="" loop="infinite" src="wp-content\themes\foce-child\assets\banner-video.mp4"> </video>
             <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
         </section>
         <section id="#story" class="story">
