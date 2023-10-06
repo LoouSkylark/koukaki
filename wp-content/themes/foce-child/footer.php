@@ -12,11 +12,13 @@
  */
 
 ?>
-
-
-<?php include("nomination.php"); ?>
+  
+ 
 
 	<footer id="colophon" class="site-footer">
+
+    <?php include("nomination.php"); ?>
+  
         <ul>
             <li><a href="#">Mentions Légales</a></li>
             <li><a href="#">STUDIO KOUKAKI</a></li>
