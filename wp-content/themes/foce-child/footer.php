@@ -13,11 +13,9 @@
 
 ?>
   
- 
-
 	<footer id="colophon" class="site-footer">
 
-    <?php include("nomination.php"); ?>
+    <?php get_template_part('nomination'); ?>
   
         <ul>
             <li><a href="#">Mentions Légales</a></li>
