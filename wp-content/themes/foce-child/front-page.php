@@ -1,61 +1,47 @@
 <?php
+/**
+ * The header for our theme
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Fleurs_d\'oranger_&_Chats_errants
+ */
 
-get_header();
 ?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <main id="primary" class="site-main">
-        <section class="banner">
-            <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
-        </section>
-        <section id="#story" class="story">
-            <h2>L'histoire</h2>
-            <article id="" class="story__article">
-                <p><?php echo get_theme_mod('story'); ?></p>
-            </article>
-            <?php
-            $args = array(
-                'post_type' => 'characters',
-                'posts_per_page' => -1,
-                'meta_key'  => '_main_char_field',
-                'orderby'   => 'meta_value_num',
+	<?php wp_head(); ?>
+</head>
 
-            );
-            $characters_query = new WP_Query($args);
-            ?>
-            <article id="characters">
-                <div class="main-character">
-                    <h3>Les personnages</h3>
-                    <?php
-                    $main_character = $characters_query->posts[0];
-                    echo '<figure>';
-                    echo get_the_post_thumbnail( $main_character->ID, 'full' );
-                    echo '<figcaption>'. $main_character->post_title . '</figcaption>';
-                    echo '</figure>';
-                    $characters_query->next_post();
-                    ?>
-                </div>
-                <div class="other-characters">
-                    <?php
-                    while ( $characters_query->have_posts() ) {
-                        $characters_query->the_post();
-                        echo '<figure>';
-                        echo get_the_post_thumbnail( get_the_ID(), 'full' );
-                        echo '<figcaption>';
-                        the_title();
-                        echo'</figcaption>';
-                        echo '</figure>';
-                    }
-                    ?>
-                </div>
-            </article>
-            <article id="place">
-                <div>
-                    <h3>Le Lieu</h3>
-                    <p><?php echo get_theme_mod('place'); ?></p>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'foce' ); ?></a>
+
+	<header id="masthead" class="site-header">
+		<div id="site-navigation" class="main-navigation">
+            <div class="menu">
+
+                <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+                <div class="button-menu">
+                    <span></span>
                 </div>
 
-            </article>
-        </section>
+            </div>
+
+</div><!-- #site-navigation -->
+	</header><!-- #masthead -->
+
+    <?php include_once('menu.php'); ?>
 
 
         <section id="studio">
