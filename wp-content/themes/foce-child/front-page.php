@@ -1,52 +1,47 @@
 <?php
+/**
+ * The header for our theme
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Fleurs_d\'oranger_&_Chats_errants
+ */
 
-get_header();
 ?>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <main id="primary" class="site-main">
-        <section class="banner">
-            <video autoplay="autoplay" muted="" loop="infinite" src="wp-content\themes\foce-child\assets\banner-video.mp4"> </video>
-            
-            <div class="logo-container">
-                <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants"> 
+	<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'foce' ); ?></a>
+
+	<header id="masthead" class="site-header">
+		<div id="site-navigation" class="main-navigation">
+            <div class="menu">
+
+                <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+                <div class="button-menu">
+                    <span></span>
+                </div>
+
             </div>
-            </section>
-        <section id="#story" class="story">
-           <!-- <img class="purple-title" src="wp-content\themes\foce-child\assets\purple_title_bg.png" alt="Petit nuage">-->
-            <h2>L'histoire</h2>
-            <article id="" class="story__article">
-                <p><?php echo get_theme_mod('story'); ?></p>
-            </article>
-            <?php
-            $args = array(
-                'post_type' => 'characters',
-                'posts_per_page' => -1,
-                'meta_key'  => '_main_char_field',
-                'orderby'   => 'meta_value_num',
 
-            );
-            $characters_query = new WP_Query($args);
-            ?>
-            <article id="characters">
-                <div class="main-character">
-                    <h3>Les personnages</h3>
-                    <!--slider-->
-                    <?php get_template_part('characters-slider'); ?>
-                </div>
+</div><!-- #site-navigation -->
+	</header><!-- #masthead -->
 
-            </article>
-            <article id="place">
-                <div class="cloud-container">
-                    <img class="cloud1" src="wp-content\themes\foce-child\assets\little_cloud.png" alt="Petit nuage">
-                    <img class="cloud2" src="wp-content\themes\foce-child\assets\big_cloud.png" alt="Gros nuage">
-                </div>
-                <div>
-                    <h3>Le Lieu</h3>
-                    <p><?php echo get_theme_mod('place'); ?></p>
-                </div>
-
-            </article>
-        </section>
+    <?php include_once('menu.php'); ?>
 
 
         <section id="studio">

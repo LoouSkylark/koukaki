@@ -21,8 +21,3 @@
       <p>Jaakuna</p>
     </div>
 </div>
-
-
-
-
-
