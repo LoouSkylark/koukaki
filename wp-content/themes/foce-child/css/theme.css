@@ -1,9 +1,8 @@
-@charset "UTF-8";
-/* Insertion de la vidéo et animation de la bannière */
 .banner {
   animation-name: slideDown, fadeIn;
   animation-duration: 1.5s;
   background-image: none;
+  overflow: hidden;
 }
 .banner video {
   display: flex;
@@ -14,6 +13,7 @@
   object-fit: cover;
 }
 .banner img {
+  width: 600px !important;
   animation-name: slideUp, floating;
   animation-duration: 1.5s, 2s;
   animation-timing-function: linear, ease-in-out;
@@ -31,8 +31,39 @@
   animation-duration: 2s;
 }
 
-/* Effet d’apparition des titres */
-.story__article::after, .story h2::after, #studio h2::before, #studio h2::after, .site-footer::after, .site-footer ul::after, .site-footer::before {
+p {
+  animation-name: slideDown;
+  animation-duration: 2s;
+}
+
+/* Footer  */
+.site-footer::before, .site-footer::after {
+  display: none;
+}
+
+.footer-flowers {
+  display: flex;
+  width: 1440px;
+  justify-content: space-between;
+  margin-top: -250px;
+  margin-bottom: 70px;
+}
+.footer-flowers .footer-sunflower {
+  margin-top: 30px;
+  margin-left: 70px;
+  width: 216px;
+  z-index: 2;
+}
+.footer-flowers .footer-orchid {
+  width: 171px;
+  height: 171px;
+  margin-right: -70px;
+}
+.footer-flowers .nomination {
+  top: -500px;
+}
+
+.story__article::after, .story h2::after, #studio h2::before, #studio h2::after, .footer-sunflower, .footer-orchid, .site-footer ul::after {
   animation: rotation 20s normal linear infinite;
 }
 
@@ -44,8 +75,7 @@
 .scroll.site-footer::after, .site-footer ul::after, .site-footer::before, .story__article::after, #studio h2::before, #studio h2::after, .fleur {
     animation: rotation 20s normal linear infinite;
 }
- .story h2::after{
-    transform-origin: 77px 77px;
+
  }
  */
 .myclass {
@@ -53,7 +83,6 @@
   animation: rotation 20s normal linear infinite;
 }
 
-/* Ajout de la section nomination Oscar */
 .site-footer {
   flex-wrap: wrap;
 }
@@ -63,27 +92,37 @@
   margin-left: 171px;
 }
 
+.story #place {
+  background-image: url(../assets/Studio_Koukaki-image_place.png);
+}
+
+.cloud1 {
+  position: absolute;
+  right: 35%;
+  bottom: 400px;
+  filter: blur(14px);
+}
+
+.cloud2 {
+  position: absolute;
+  right: 4%;
+  bottom: 510px;
+  filter: blur(14px);
+}
+
 /* Slider swiper personnages */
 .swiper {
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
-
-.swiper-slide {
+.swiper .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 500px;
 }
-
-.swiper-slide img {
+.swiper .swiper-slide img {
   display: block;
-  width: 100%;
-}
-
-.swiper-slide-active {
-  transform: scale(1.2) !important;
+  width: 400px;
 }
 
 .button-menu {
@@ -121,15 +160,15 @@
   transform: translateY(10px);
 }
 
-.activee span {
+.active span {
   background-color: transparent;
 }
 
-.activee span::before {
+.active span::before {
   transform: translateY(0px) rotateZ(45deg);
 }
 
-.activee span::after {
+.active span::after {
   transform: translateY(0px) rotateZ(-45deg);
 }
 
@@ -157,7 +196,7 @@
 .new-ul li a {
   text-decoration: none;
   font-family: Roboto Mono;
-  font-size: 3.33vw;
+  font-size: 64px;
   font-weight: 400;
   line-height: 130px;
   letter-spacing: 0em;
@@ -225,6 +264,99 @@ button.buttonmenu {
   text-align: center;
 }
 
+.logoburger {
+  margin: auto;
+  margin-top: 200px !important;
+  margin-bottom: 5px;
+}
+
+/*
+.flowersburger {
+
+
+
+    .hibiscusburger {
+        position: absolute;
+        left: 1106px;
+        top: 446px;
+        z-index: 99;
+
+    }
+
+    .sunflowerburger {
+        position: absolute;
+        width: 216px;
+        height: 216px;
+
+        left: 829px;
+        top: 87px;
+
+        z-index: 99;
+        margin-left: 234px;
+    }
+
+    .purplecat {
+        position: absolute;
+        width: 109.22px;
+        height: 98.63px;
+        left: 181px;
+        top: 177.49px;
+        margin-left: 120px;
+        //transform: rotate(-17.86deg);
+    }
+
+    .orchidburger {
+        position: absolute;
+        width: 172.57px;
+        height: 168.24px;
+        left: -72px;
+        top: 152px;
+    }
+
+    .randomflowerburger {
+        position: absolute;
+        width: 75.75px;
+        height: 74.53px;
+        left: 1393px;
+        top: 352px;
+    }
+
+    .flowerburger {
+        box-sizing: border-box;
+        position: absolute;
+        width: 70.76px;
+        height: 70.76px;
+        left: 203px;
+        top: 458px;
+    }
+
+    .blackcat {
+        position: absolute;
+        width: 123.92px;
+        height: 111.91px;
+        left: 1063px;
+        top: 437px;
+        //transform: rotate(-20.02deg);
+
+    }
+
+    .orangecat {
+        position: absolute;
+        width: 105.91px;
+        height: 95.65px;
+        left: 24px;
+        top: 672px;
+        transform: rotate(-0.51deg);
+    }
+}
+*/
+@media screen and (max-height: 746px) {
+  .logomenu {
+    margin-top: 100px;
+    margin-left: 140px;
+    margin-top: -83px;
+  }
+}
 /* KEYFRAMES */
 @keyframes fadeIn {
   0% {

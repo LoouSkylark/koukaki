@@ -12,10 +12,14 @@
  */
 
 ?>
-  
 	<footer id="colophon" class="site-footer">
+        <div class="footer-flowers">
+            <img class="footer-sunflower" src="wp-content\themes\foce-child\assets\sunflower.png" alt="Marguerite">
 
-    <?php get_template_part('nomination'); ?>
+            <img class="footer-orchid" src="wp-content\themes\foce-child\assets\orchid.png" alt="Orchidée">
+        </div>
+        
+        <?php get_template_part('nomination'); ?>
   
         <ul>
             <li><a href="#">Mentions Légales</a></li>
@@ -24,10 +28,11 @@
         </ul>
         
 	</footer><!-- #colophon -->
-    
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
 
 </body>
 </html>
+
