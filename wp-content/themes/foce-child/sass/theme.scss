@@ -67,11 +67,13 @@ p {
             margin-right: -70px;
 
         }
-    }
-    .nomination {
-        top: -500px;
 
+        .nomination {
+            top: -500px;
+    
+        }
     }
+
 
 
 
@@ -85,10 +87,6 @@ p {
  .story h2::after{
     transform-origin: 77px 77px;
  }
-
-
-
-
 
 
 /* //copie
@@ -304,6 +302,108 @@ button.buttonmenu {
 
 .newul p {
     text-align: center;
+
+}
+
+// Intégration des images du menu burger
+
+.logoburger {
+    margin: auto;
+    margin-top: 200px !important;
+    margin-bottom: 5px;
+}
+
+/*
+.flowersburger {
+
+
+
+    .hibiscusburger {
+        position: absolute;
+        left: 1106px;
+        top: 446px;
+        z-index: 99;
+
+    }
+
+    .sunflowerburger {
+        position: absolute;
+        width: 216px;
+        height: 216px;
+     
+        left: 829px;
+        top: 87px;
+    
+        z-index: 99;
+        margin-left: 234px;
+    }
+    
+    .purplecat {
+        position: absolute;
+        width: 109.22px;
+        height: 98.63px;
+        left: 181px;
+        top: 177.49px;
+        margin-left: 120px;
+        //transform: rotate(-17.86deg);
+    }
+    
+    .orchidburger {
+        position: absolute;
+        width: 172.57px;
+        height: 168.24px;
+        left: -72px;
+        top: 152px;
+    }
+    
+    .randomflowerburger {
+        position: absolute;
+        width: 75.75px;
+        height: 74.53px;
+        left: 1393px;
+        top: 352px;
+    }
+    
+    .flowerburger {
+        box-sizing: border-box;
+        position: absolute;
+        width: 70.76px;
+        height: 70.76px;
+        left: 203px;
+        top: 458px;
+    }
+    
+    .blackcat {
+        position: absolute;
+        width: 123.92px;
+        height: 111.91px;
+        left: 1063px;
+        top: 437px;
+        //transform: rotate(-20.02deg);
+    
+    }
+    
+    .orangecat {
+        position: absolute;
+        width: 105.91px;
+        height: 95.65px;
+        left: 24px;
+        top: 672px;
+        transform: rotate(-0.51deg);
+    }
+}
+*/
+
+
+
+
+@media screen and (max-height: 746px){
+
+    .logomenu {
+        margin-top: 100px;
+        margin-left: 140px;
+        margin-top:-83px;
+    }
 
 }
 
