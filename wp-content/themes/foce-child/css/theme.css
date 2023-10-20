@@ -1,9 +1,8 @@
-@charset "UTF-8";
-/* Insertion de la vidéo et animation de la bannière */
 .banner {
   animation-name: slideDown, fadeIn;
   animation-duration: 1.5s;
   background-image: none;
+  overflow: hidden;
 }
 .banner video {
   display: flex;
@@ -14,6 +13,7 @@
   object-fit: cover;
 }
 .banner img {
+  width: 600px !important;
   animation-name: slideUp, floating;
   animation-duration: 1.5s, 2s;
   animation-timing-function: linear, ease-in-out;
@@ -22,48 +22,341 @@
 }
 
 /* Effet d'apparation du contenu */
-h2 ::after ::before {
+/*h2 ::after ::before {
+    animation-name: slideUp;
+    animation-duration: 2s; 
+}*/
+.story, #characters, #place, #studio, #colophon, #nomination {
   animation-name: slideUp;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
 }
 
-.story, #characters,
-#place, #studio {
-  animation-name: slideUp;
-  animation-duration: 1.5s;
+p {
+  animation-name: slideDown;
+  animation-duration: 2s;
 }
 
-#story__article p {
-  position: absolute;
-  width: 50%;
-  padding-bottom: 300px !important;
+/* Footer  */
+.site-footer::before, .site-footer::after {
+  display: none;
 }
 
-/* Effet d’apparition des titres */
-/* Effet de rotation infinie des fleurs */
-.site-footer::after, .site-footer ul::after, .site-footer::before, .story__article::after, #studio h2::before, #studio h2::after, .fleur {
+.footer-flowers {
+  display: flex;
+  width: 1440px;
+  justify-content: space-between;
+  margin-top: -250px;
+  margin-bottom: 70px;
+}
+.footer-flowers .footer-sunflower {
+  margin-top: 30px;
+  margin-left: 70px;
+  width: 216px;
+  z-index: 2;
+}
+.footer-flowers .footer-orchid {
+  width: 171px;
+  height: 171px;
+  margin-right: -70px;
+}
+.footer-flowers .nomination {
+  top: -500px;
+}
+
+.story__article::after, .story h2::after, #studio h2::before, #studio h2::after, .footer-sunflower, .footer-orchid, .site-footer ul::after {
   animation: rotation 20s normal linear infinite;
 }
 
 .story h2::after {
   transform-origin: 77px 77px;
+}
+
+/* //copie
+.scroll.site-footer::after, .site-footer ul::after, .site-footer::before, .story__article::after, #studio h2::before, #studio h2::after, .fleur {
+    animation: rotation 20s normal linear infinite;
+}
+
+ }
+ */
+.myclass {
+  background-color: aqua;
   animation: rotation 20s normal linear infinite;
 }
 
-/* Ajout de la section nomination Oscar */
 .site-footer {
   flex-wrap: wrap;
 }
-
-#nomination img {
+.site-footer #nomination img {
   margin-top: -150px;
   padding-bottom: 300px;
   margin-left: 171px;
 }
-#nomination ::after {
-  margin-top: -150px;
+
+.story #place {
+  background-image: url(../assets/Studio_Koukaki-image_place.png);
 }
 
+.cloud1 {
+  position: absolute;
+  right: 35%;
+  bottom: 400px;
+  filter: blur(14px);
+}
+
+.cloud2 {
+  position: absolute;
+  right: 4%;
+  bottom: 510px;
+  filter: blur(14px);
+}
+
+/* Slider swiper personnages */
+.swiper {
+  width: 100%;
+}
+.swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 500px;
+}
+.swiper .swiper-slide img {
+  display: block;
+  width: 400px;
+}
+
+.button-menu {
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
+}
+
+.button-menu span {
+  width: 100%;
+  height: 4px;
+  background-color: #000000;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: backround-color 0.5s ease-in-out;
+}
+
+.button-menu span::before,
+.button-menu span::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #000000;
+}
+
+.button-menu span::before {
+  transform: translateY(-10px);
+}
+
+.button-menu span::after {
+  transform: translateY(10px);
+}
+
+.active span {
+  background-color: transparent;
+}
+
+.active span::before {
+  transform: translateY(0px) rotateZ(45deg);
+}
+
+.active span::after {
+  transform: translateY(0px) rotateZ(-45deg);
+}
+
+.menuburger {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+.new-ul {
+  list-style: none;
+  padding: 0;
+  z-index: 2;
+  padding-top: 50px;
+}
+
+.new-ul li {
+  text-align: center;
+  animation: 0.3s print;
+}
+
+.new-ul li a {
+  text-decoration: none;
+  font-family: Roboto Mono;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 130px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: black;
+}
+
+.new-ul li a:hover {
+  text-shadow: 0px 0px 14px #FF5C00;
+  color: #000000;
+}
+
+.open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdrop {
+  /* position: absolute; */
+  top: -3215px;
+  left: -6312px;
+  right: 0;
+  bottom: 0;
+  background: #fff5e9;
+  cursor: pointer;
+  animation: fade 0.1s;
+}
+
+@keyframes print {
+  from {
+    margin-top: -50px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.remove {
+  display: none !important;
+}
+
+.menu {
+  padding-top: 20px;
+  margin-left: 420px;
+  display: flex;
+  justify-content: space-around;
+}
+
+button.buttonmenu {
+  display: block !important;
+  z-index: 9999;
+}
+
+.newul p {
+  text-align: center;
+}
+
+.logoburger {
+  margin: auto;
+  margin-top: 200px !important;
+  margin-bottom: 5px;
+}
+
+/*
+.flowersburger {
+
+
+
+    .hibiscusburger {
+        position: absolute;
+        left: 1106px;
+        top: 446px;
+        z-index: 99;
+
+    }
+
+    .sunflowerburger {
+        position: absolute;
+        width: 216px;
+        height: 216px;
+
+        left: 829px;
+        top: 87px;
+
+        z-index: 99;
+        margin-left: 234px;
+    }
+
+    .purplecat {
+        position: absolute;
+        width: 109.22px;
+        height: 98.63px;
+        left: 181px;
+        top: 177.49px;
+        margin-left: 120px;
+        //transform: rotate(-17.86deg);
+    }
+
+    .orchidburger {
+        position: absolute;
+        width: 172.57px;
+        height: 168.24px;
+        left: -72px;
+        top: 152px;
+    }
+
+    .randomflowerburger {
+        position: absolute;
+        width: 75.75px;
+        height: 74.53px;
+        left: 1393px;
+        top: 352px;
+    }
+
+    .flowerburger {
+        box-sizing: border-box;
+        position: absolute;
+        width: 70.76px;
+        height: 70.76px;
+        left: 203px;
+        top: 458px;
+    }
+
+    .blackcat {
+        position: absolute;
+        width: 123.92px;
+        height: 111.91px;
+        left: 1063px;
+        top: 437px;
+        //transform: rotate(-20.02deg);
+
+    }
+
+    .orangecat {
+        position: absolute;
+        width: 105.91px;
+        height: 95.65px;
+        left: 24px;
+        top: 672px;
+        transform: rotate(-0.51deg);
+    }
+}
+*/
+@media screen and (max-height: 746px) {
+  .logomenu {
+    margin-top: 100px;
+    margin-left: 140px;
+    margin-top: -83px;
+  }
+}
 /* KEYFRAMES */
 @keyframes fadeIn {
   0% {
