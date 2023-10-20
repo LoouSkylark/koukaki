@@ -1,18 +1,51 @@
 console.log ('start')
 
-
 // Run after document has loaded...
 jQuery(document).ready(function($){
 
+  // Paralaxe du logo
+  $(window).scroll(function() {
+    var offset = $(window).scrollTop();
+    $('.logo-container').css('transform', 'translateY(' + offset * 0.5 + 'px)');
+});
+
   // Rotation des fleurs "ceci fonctionne mais pas sur les classes des fleurs !!!"
-  //$('.site-footer::after').addClass('myclass');
+ // $('.nomination').addClass('myclass');
+
+//$(".story").prepend("Some prepended text.");
+// Paralaxe nuages
+
+// Animation des titres
+/*$(window).scroll(function() {
+  var scroll = $(window).scrollTop();
+  if (scroll >= 500) { // If user scrolls down 500px...
+    $( '.story h2' ).addClass('title-show');
+  }
+  });*/
+
+// Animation des  nuages
+$(window).scroll(function() {
+  var scroll = $(window).scrollTop();
+  if (scroll >= 1000) { // If user scrolls down 500px...
+
+    $( ".cloud1" ).animate({
+      right: "60%",
+    }, 3000);
+    $( ".cloud2" ).animate({
+      right: "30%",
+    }, 3000);
+  }
+  });
+
+// Slider personnages
+
   var swiper = new Swiper(".mySwiper", {
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: "auto",
     coverflowEffect: {
-      rotate: 0,
+      rotate: 50,
       stretch: 0,
       depth: 70,
       modifier: 1,
@@ -20,6 +53,7 @@ jQuery(document).ready(function($){
     },
     pagination: {
       el: ".swiper-pagination",
+      
     },
   });
 console.log(Swiper)
@@ -49,7 +83,7 @@ backdrop.addEventListener('click', () => {
 
 // button burger 
 button.addEventListener('click', ()=> {
-  button.classList.toggle('activee');
+  button.classList.toggle('active');
 
 });
 
