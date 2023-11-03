@@ -3,25 +3,53 @@ console.log ('start')
 // Run after document has loaded...
 jQuery(document).ready(function($){
 
-  // Paralaxe du logo
-  $(window).scroll(function() {
-    var offset = $(window).scrollTop();
-    $('.logo-container').css('transform', 'translateY(' + offset * 0.5 + 'px)');
+// Paralaxe du logo
+$(window).scroll(function() {
+  var offset = $(window).scrollTop();
+  $('.logo-container').css('transform', 'translateY(' + offset * 0.5 + 'px)');
 });
 
-  // Rotation des fleurs "ceci fonctionne mais pas sur les classes des fleurs !!!"
- // $('.nomination').addClass('myclass');
+// Animation au scroll des titres
 
-//$(".story").prepend("Some prepended text.");
-// Paralaxe nuages
+   const observer = new IntersectionObserver(entries => {
+    // Loop over the entries
+    entries.forEach(entry => {
+      // si l'élément est visible
+      if (entry.isIntersecting) {
+        // ajouter classe 
+        entry.target.classList.add("animPart1");
+      }
+        else {
+          // supprimer  classe 
+        entry.target.classList.remove("animPart1");
+        }
+    });
+  });
+ 
+    // Première partie du titre
+  const sections = document.querySelectorAll(".title-part1")
+    sections.forEach(section => {
+    observer.observe(section);
+  });  
 
-// Animation des titres
-/*$(window).scroll(function() {
-  var scroll = $(window).scrollTop();
-  if (scroll >= 500) { // If user scrolls down 500px...
-    $( '.story h2' ).addClass('title-show');
-  }
-  });*/
+  const observer2 = new IntersectionObserver(entries => {
+ 
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animPart2");
+      }
+        else {
+        entry.target.classList.remove("animPart2");
+        }
+    });
+  });
+
+  // Deuxieme partie du titre
+  const sections2 = document.querySelectorAll(".title-part2")
+    sections2.forEach(section => {
+    observer2.observe(section);  
+  });
+
 
 // Animation des  nuages
 $(window).scroll(function() {
@@ -38,7 +66,6 @@ $(window).scroll(function() {
   });
 
 // Slider personnages
-
   var swiper = new Swiper(".mySwiper", {
     effect: "coverflow",
     grabCursor: true,
@@ -53,11 +80,9 @@ $(window).scroll(function() {
     },
     pagination: {
       el: ".swiper-pagination",
-      
     },
   });
 console.log(Swiper)
-
   }); 
 
 
@@ -84,8 +109,17 @@ backdrop.addEventListener('click', () => {
 // button burger 
 button.addEventListener('click', ()=> {
   button.classList.toggle('active');
-
 });
+
+/*
+// Animation menu 
+const animemenu = document.querySelectorAll('.animation');
+
+button.addEventListener('click', () => {
+  animemenu.forEach(function(element) {
+    element.classList.toggle('animationbas');
+  });
+}); */
 
   /*  $(window).scroll(function() {
     var scroll = $(window).scrollTop();

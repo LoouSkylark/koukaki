@@ -1,8 +1,11 @@
+@charset "UTF-8";
+/* Insertion de la vidéo et animation de la bannière */
 .banner {
   animation-name: slideDown, fadeIn;
   animation-duration: 1.5s;
   background-image: none;
   overflow: hidden;
+  margin: 0 auto;
 }
 .banner video {
   display: flex;
@@ -22,10 +25,6 @@
 }
 
 /* Effet d'apparation du contenu */
-/*h2 ::after ::before {
-    animation-name: slideUp;
-    animation-duration: 2s; 
-}*/
 .story, #characters, #place, #studio, #colophon, #nomination {
   animation-name: slideUp;
   animation-duration: 2s;
@@ -36,7 +35,47 @@ p {
   animation-duration: 2s;
 }
 
-/* Footer  */
+.title-part1,
+.title-part2 {
+  opacity: 0;
+}
+
+.animPart1,
+.animPart2 {
+  display: inline-block;
+  position: relative;
+  opacity: 1;
+}
+
+.animPart1 {
+  animation: slidePart1 1s ease-in-out;
+}
+
+.animPart2 {
+  animation: slidePart2 1s ease-in-out;
+}
+
+@keyframes slidePart1 {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slidePart2 {
+  0% {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* FOOTER  */
 .site-footer::before, .site-footer::after {
   display: none;
 }
@@ -63,6 +102,7 @@ p {
   top: -500px;
 }
 
+/* ROTATION DES FLEURS */
 .story__article::after, .story h2::after, #studio h2::before, #studio h2::after, .footer-sunflower, .footer-orchid, .site-footer ul::after {
   animation: rotation 20s normal linear infinite;
 }
@@ -71,16 +111,53 @@ p {
   transform-origin: 77px 77px;
 }
 
-/* //copie
-.scroll.site-footer::after, .site-footer ul::after, .site-footer::before, .story__article::after, #studio h2::before, #studio h2::after, .fleur {
-    animation: rotation 20s normal linear infinite;
+/* SLIDER PERSONNAGE */
+#characters {
+  width: 1440px;
+  margin-left: 240px !important;
+  margin-right: 240px !important;
+}
+#characters .main-character {
+  width: 1440px;
+}
+#characters .main-character h3 {
+  padding-left: 50px !important;
+  background-position: left;
+  text-align: left;
 }
 
- }
- */
-.myclass {
-  background-color: aqua;
-  animation: rotation 20s normal linear infinite;
+.swiper {
+  height: 350px;
+  padding-bottom: 0;
+  overflow: hidden !important;
+}
+.swiper .swiper-slide {
+  background-position: left !important;
+  width: 400px;
+  height: 500px;
+}
+.swiper .swiper-slide img {
+  display: block;
+  width: 400px;
+}
+
+.story #place {
+  background-image: url(../assets/Studio_Koukaki-image_place.png);
+}
+.story #place .cloud1 {
+  position: absolute;
+  right: 35%;
+  bottom: 400px;
+  filter: blur(14px);
+}
+.story #place .cloud2 {
+  position: absolute;
+  right: 4%;
+  bottom: 510px;
+  filter: blur(14px);
+}
+.story #place .place-container {
+  margin-left: 10px !important;
 }
 
 .site-footer {
@@ -92,47 +169,14 @@ p {
   margin-left: 171px;
 }
 
-.story #place {
-  background-image: url(../assets/Studio_Koukaki-image_place.png);
-}
-
-.cloud1 {
-  position: absolute;
-  right: 35%;
-  bottom: 400px;
-  filter: blur(14px);
-}
-
-.cloud2 {
-  position: absolute;
-  right: 4%;
-  bottom: 510px;
-  filter: blur(14px);
-}
-
-/* Slider swiper personnages */
-.swiper {
-  width: 100%;
-}
-.swiper .swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 400px;
-  height: 500px;
-}
-.swiper .swiper-slide img {
-  display: block;
-  width: 400px;
-}
-
-.button-menu {
+/* MENU BURGER */
+#site-navigation .button-menu {
   width: 42px;
   height: 24px;
   cursor: pointer;
   position: relative;
 }
-
-.button-menu span {
+#site-navigation .button-menu span {
   width: 100%;
   height: 4px;
   background-color: #000000;
@@ -142,33 +186,27 @@ p {
   transform: translateY(-50%);
   transition: backround-color 0.5s ease-in-out;
 }
-
-.button-menu span::before,
-.button-menu span::after {
+#site-navigation .button-menu span::before,
+#site-navigation .button-menu span::after {
   content: "";
   position: absolute;
   width: 100%;
   height: 4px;
   background-color: #000000;
 }
-
-.button-menu span::before {
+#site-navigation .button-menu span::before {
   transform: translateY(-10px);
 }
-
-.button-menu span::after {
+#site-navigation .button-menu span::after {
   transform: translateY(10px);
 }
-
-.active span {
+#site-navigation .active span {
   background-color: transparent;
 }
-
-.active span::before {
+#site-navigation .active span::before {
   transform: translateY(0px) rotateZ(45deg);
 }
-
-.active span::after {
+#site-navigation .active span::after {
   transform: translateY(0px) rotateZ(-45deg);
 }
 
@@ -189,8 +227,7 @@ p {
 }
 
 .new-ul li {
-  text-align: center;
-  animation: 0.3s print;
+  animation: slideUp 2s ease-in-out;
 }
 
 .new-ul li a {
@@ -200,7 +237,6 @@ p {
   font-weight: 400;
   line-height: 130px;
   letter-spacing: 0em;
-  text-align: center;
   color: black;
 }
 
@@ -216,34 +252,53 @@ p {
 }
 
 .backdrop {
-  /* position: absolute; */
   top: -3215px;
   left: -6312px;
   right: 0;
   bottom: 0;
   background: #fff5e9;
   cursor: pointer;
-  animation: fade 0.1s;
+}
+.backdrop .button-menu {
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
+}
+.backdrop .button-menu span {
+  width: 100%;
+  height: 4px;
+  background-color: #000000;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: backround-color 0.5s ease-in-out;
+}
+.backdrop .button-menu span::before,
+.backdrop .button-menu span::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #000000;
+}
+.backdrop .button-menu span::before {
+  transform: translateY(-10px);
+}
+.backdrop .button-menu span::after {
+  transform: translateY(10px);
+}
+.backdrop .active span {
+  background-color: transparent;
+}
+.backdrop .active span::before {
+  transform: translateY(0px) rotateZ(45deg);
+}
+.backdrop .active span::after {
+  transform: translateY(0px) rotateZ(-45deg);
 }
 
-@keyframes print {
-  from {
-    margin-top: -50px;
-    opacity: 0;
-  }
-  to {
-    margin-top: 0;
-    opacity: 1;
-  }
-}
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .remove {
   display: none !important;
 }
@@ -255,108 +310,89 @@ p {
   justify-content: space-around;
 }
 
-button.buttonmenu {
-  display: block !important;
-  z-index: 9999;
+.menuburger {
+  flex-direction: column;
+  height: 880px;
+  overflow: hidden;
+  animation: fadeIn 5s;
 }
-
-.newul p {
+.menuburger .backdrop {
   text-align: center;
 }
-
-.logoburger {
-  margin: auto;
-  margin-top: 200px !important;
-  margin-bottom: 5px;
+.menuburger .backdrop .logoburger {
+  margin-top: 30px;
+}
+.menuburger .backdrop .new-ul p {
+  margin-top: 100px;
+}
+.menuburger .backdrop .flowersburger .sunflowerburger {
+  position: absolute;
+  width: 216px;
+  height: 216px;
+  left: 829px;
+  top: 95px;
+  margin-left: 234px;
+}
+.menuburger .backdrop .flowersburger .orchidburger {
+  position: absolute;
+  width: 172px;
+  height: 168px;
+  left: -72px;
+  top: 100px;
+}
+.menuburger .backdrop .flowersburger .purplecat {
+  position: absolute;
+  width: 109px;
+  height: 98px;
+  left: 181px;
+  top: 200px;
+  margin-left: 120px;
+}
+.menuburger .backdrop .flowersburger .randomflowerburger {
+  position: absolute;
+  width: 75px;
+  height: 74px;
+  left: 1390px;
+  top: 360px;
+}
+.menuburger .backdrop .flowersburger .flowerburger {
+  box-sizing: border-box;
+  position: absolute;
+  width: 70.76px;
+  height: 70.76px;
+  left: 203px;
+  top: 458px;
+}
+.menuburger .backdrop .flowersburger .blackcat {
+  position: absolute;
+  width: 123px;
+  height: 111px;
+  left: 1063px;
+  top: 437px;
+}
+.menuburger .backdrop .flowersburger .orangecat {
+  position: absolute;
+  width: 105px;
+  height: 95px;
+  left: 24px;
+  top: 700px;
+}
+.menuburger .backdrop .flowersburger .hibiscusburger {
+  position: absolute;
+  width: 626px;
+  left: 1106px;
+  top: 600px;
+  filter: blur(2px);
 }
 
-/*
-.flowersburger {
-
-
-
-    .hibiscusburger {
-        position: absolute;
-        left: 1106px;
-        top: 446px;
-        z-index: 99;
-
-    }
-
-    .sunflowerburger {
-        position: absolute;
-        width: 216px;
-        height: 216px;
-
-        left: 829px;
-        top: 87px;
-
-        z-index: 99;
-        margin-left: 234px;
-    }
-
-    .purplecat {
-        position: absolute;
-        width: 109.22px;
-        height: 98.63px;
-        left: 181px;
-        top: 177.49px;
-        margin-left: 120px;
-        //transform: rotate(-17.86deg);
-    }
-
-    .orchidburger {
-        position: absolute;
-        width: 172.57px;
-        height: 168.24px;
-        left: -72px;
-        top: 152px;
-    }
-
-    .randomflowerburger {
-        position: absolute;
-        width: 75.75px;
-        height: 74.53px;
-        left: 1393px;
-        top: 352px;
-    }
-
-    .flowerburger {
-        box-sizing: border-box;
-        position: absolute;
-        width: 70.76px;
-        height: 70.76px;
-        left: 203px;
-        top: 458px;
-    }
-
-    .blackcat {
-        position: absolute;
-        width: 123.92px;
-        height: 111.91px;
-        left: 1063px;
-        top: 437px;
-        //transform: rotate(-20.02deg);
-
-    }
-
-    .orangecat {
-        position: absolute;
-        width: 105.91px;
-        height: 95.65px;
-        left: 24px;
-        top: 672px;
-        transform: rotate(-0.51deg);
-    }
+.orchidburger, .sunflowerburger, .hibiscusburger, .flowerburger, .randomflowerburger {
+  animation: rotation 20s normal linear infinite;
 }
-*/
-@media screen and (max-height: 746px) {
-  .logomenu {
-    margin-top: 100px;
-    margin-left: 140px;
-    margin-top: -83px;
-  }
+
+.purplecat, .blackcat, .orangecat {
+  animation: floating 4s normal linear infinite;
 }
+
 /* KEYFRAMES */
 @keyframes fadeIn {
   0% {
@@ -402,11 +438,17 @@ button.buttonmenu {
 @media screen and (max-width: 820px) {
   .banner {
     min-height: 180px;
-    background-size: contain;
-    background-image: url(../assets/banner.png);
   }
   .banner video {
     display: none;
+  }
+  .banner .logo-container {
+    background-size: contain;
+    background-image: url(../assets/banner.png);
+  }
+  .banner .logo-container img {
+    width: 60% !important;
+    margin: 0 auto;
   }
 }
 
