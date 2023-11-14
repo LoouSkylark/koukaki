@@ -26,7 +26,6 @@
 }
 
 /* Effet d'apparation du contenu */
-
 .story, #characters, #place, #studio, #colophon, #nomination {
     animation-name: slideUp;
     animation-duration: 2s;
@@ -38,7 +37,6 @@ p {
 }
 
 //Effet d’apparition des titres avec une @mixin
-
  $titleSpeed: 1s;
 
  .title-part1,
@@ -78,37 +76,6 @@ p {
  @include titleSlide(100%, slidePart1);
  @include titleSlide(150%, slidePart2);
 
-
-
-/* FOOTER  */
-
-.site-footer::before, .site-footer::after {
-    display: none;
-}
-
-.footer-flowers {
-    display: flex;
-    width: 1440px;
-    justify-content: space-between;
-    margin-top: -250px;
-    margin-bottom: 70px;
-        .footer-sunflower {
-            margin-top: 30px;
-            margin-left: 70px;
-            width: 216px;
-            z-index: 2;
-        }
-        .footer-orchid {
-            width: 171px;
-            height: 171px;
-            margin-right: -70px;
-        }
-
-        .nomination {
-            top: -500px;
-        }
-    }
-
 /* ROTATION DES FLEURS */
 
 //Effet de rotation infinie des fleurs
@@ -120,6 +87,14 @@ p {
  .story h2::after{
     transform-origin: 77px 77px;
  }
+
+// Mise en forme de la section studio
+#studio{
+    overflow: auto;
+    div::before {
+        padding-top: 30px;
+    }
+}
 
  /* SLIDER PERSONNAGE */
 
@@ -142,29 +117,29 @@ p {
 
 // Intégration du slider swiper personnages
 .swiper {
-
     height: 350px;
     padding-bottom: 0;
     overflow :hidden !important;
 
-    .swiper-slide {
-        background-position: left !important;
-
-        width: 400px;
-        height: 500px;
-        //padding: 20px;
-
-        img {
-            display: block;
+        .swiper-slide {
+            background-position: left !important;
+    
             width: 400px;
-        } 
-    }
+            height: 500px;
+            //padding: 20px;
+    
+            img {
+                display: block;
+                width: 400px;
+            } 
+        }
 }
 
-// Ajout du paralaxe nuages dans la section lieu
+// Ajout du parallaxe nuages dans la section lieu
 .story #place {
     background-image: url(../assets/Studio_Koukaki-image_place.png);
 
+ 
     .cloud1 {
         position: absolute;
         right: 35%;
@@ -455,9 +430,38 @@ p {
     animation: floating 4s normal linear infinite;
 }
 
+/* FOOTER  */
+
+.site-footer::before, .site-footer::after {
+    display: none;
+}
+
+.footer-flowers {
+    display: flex;
+    width: 1440px;
+    justify-content: space-between;
+    margin-top: -250px;
+    margin-bottom: 70px;
+        .footer-sunflower {
+            margin-top: 30px;
+            margin-left: 70px;
+            width: 216px;
+            z-index: 2;
+        }
+        .footer-orchid {
+            width: 171px;
+            height: 171px;
+            margin-right: -70px;
+        }
+
+        .nomination {
+            top: -500px;
+        }
+    }
+
 /* KEYFRAMES */
 
- @keyframes fadeIn {
+@keyframes fadeIn {
     0% {
         opacity: 0;
     }
@@ -467,7 +471,7 @@ p {
     }
 }
 
- @keyframes slideDown {
+@keyframes slideDown {
     0% {
         transform: translateY(-100px);
     }
@@ -487,14 +491,13 @@ p {
     }
 }
  
- @keyframes rotation {
+@keyframes rotation {
     100% {
         transform: rotate(1turn);
     }
 }
 
 @keyframes floating {
-    
     0% {
         transform: translate(0,0);
     }
@@ -509,28 +512,91 @@ p {
 }
 
 /* MEDIA QUERIES */
-@media screen and (max-width: 820px) {
-    
-.banner {
-    min-height: 180px;
+@media screen and (max-width: 768px) { 
 
+h2, h3 {
+    font-size: 33px;
+}
+
+.site-title {
+    font-size: 18px !important;
+}
+
+.banner {
+
+    min-height: unset;
+ 
     video {
         display: none;
     }
 
     .logo-container {
-
-        background-size: contain;
+        background-size: cover;
         background-image: url(../assets/banner.png);
 
         img {
-            width: 60% !important;
             margin: 0 auto;
-
         }
     }
 }
+
+.menu {
+    margin-left: 0;
+    padding: 5px;
 }
 
+.menuburger {
+    height: 600px !important;
+}
 
+.new-ul {
+    margin: 0;
+    padding: 0;
+    a {
+    font-size: 40px !important;
+    line-height: 70px !important;
+    }
+    p {
+        margin-top: 30px !important;
+    }
+}
 
+.flowersburger {
+    display: none;
+}
+
+#characters .main-character h3 {
+    background-position: center;
+    text-align: center;
+}
+
+.cloud-container {
+    display: none !important;
+}
+.story #place > div p {
+    padding-left: 0;
+    
+}
+
+.place-container {
+    width: 90% !important;
+    margin: 0 auto;
+    h3 {
+        padding-left: 140px;
+        background-position: 80%;
+
+    }
+    p {
+        text-align: center;
+    }
+}
+
+.site-footer #nomination img {
+    margin-left: 0;
+    }
+
+.footer-flowers img {
+    display: none;
+}
+
+}
